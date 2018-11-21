@@ -31,6 +31,7 @@ pub fn build_tree(val: &json::Value) -> reply::Node {
             None => vec![]
         },
         id: val.get("id").unwrap().as_i64().unwrap(),
+        pid: val.get("pid").map(|a| a.as_i64().unwrap()),
         name: match val.get("name") {
             Some(n) => match n.as_str() {
                 Some(s) => Some(s.to_owned()),
